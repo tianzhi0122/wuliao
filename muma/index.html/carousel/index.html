@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="box"><img src="image/37.jpg" alt=""></div>
+<audio src="west.mp3" autoplay controls loop="true"></audio>
+  <section class="container">
+     <div class="carousel"  id="carousel">
+         <figure><img src="image/34.jpg" alt=""></figure>
+         <figure><img src="image/31.jpg" alt=""></figure>
+         <figure><img src="image/3.jpg" alt=""></figure>
+         <figure><img src="image/4.jpg" alt=""></figure>
+         <figure><img src="image/5.jpg" alt=""></figure>
+         <figure><img src="image/6.jpg" alt=""></figure>
+         <figure><img src="image/7.jpg" alt=""></figure>
+         <figure><img src="image/8.jpg" alt=""></figure>
+         <figure><img src="image/9.jpg" alt=""></figure>
+         <figure><img src="image/10.jpg" alt=""></figure>
+         <figure><img src="image/11.jpg" alt=""></figure>
+         <figure><img src="image/12.jpg" alt=""></figure>
+         <figure><img src="image/13.jpg" alt=""></figure>
+         <figure><img src="image/14.jpg" alt=""></figure>
+         <figure><img src="image/15.jpg" alt=""></figure>
+         <figure><img src="image/16.jpg" alt=""></figure>
+         <figure><img src="image/17.jpg" alt=""></figure>
+         <figure><img src="image/1.jpg" alt=""></figure>
+         <figure><img src="image/19.jpg" alt=""></figure>
+         <figure><img src="image/20.jpg" alt=""></figure>
+         <figure><img src="image/21.jpg" alt=""></figure>
+         <figure><img src="image/22.jpg" alt=""></figure>
+         <figure><img src="image/23.jpg" alt=""></figure>
+         <figure><img src="image/24.jpg" alt=""></figure>
+         <figure><img src="image/25.jpg" alt=""></figure>
+         <figure><img src="image/2.jpg" alt=""></figure>
+         <figure><img src="image/18.jpg" alt=""></figure>
+         <figure><img src="image/28.jpg" alt=""></figure>
+         <figure><img src="image/15.jpg" alt=""></figure>
+         <figure><img src="image/27.jpg" alt=""></figure>
+         <figure><img src="image/33.jpg" alt=""></figure>
+     </div>
+  </section>
+<section class="option">
+    <button id="prev" data="1">最好的时光、遇见最好你们、让我们一起加油！  <br>我是萌萌</button>
+    <!--<button id="next" data="-1">下一个</button>-->
+</section>
+  <script>
+      // 这里是放js代码的；
+      // es6 中定义变量
+      function init() {
+          let carousel = document.getElementById("carousel");
+          let  length = carousel.children.length;
+          let count = 0;
+          // 来记录当前carousel旋转的角度
+//          let prev =document.getElementById("prev");
+//          let next =document.getElementById("next");
+          let btns =document.getElementsByTagName("button");
+          // 获取所有的button;
+//          prev.onclick = function () {
+//              // 当点击上一个元素的时候，函数体中代码执行；
+//              count += 360/length;
+//              // 在js中也可以设置盒子的属性；js中属性会覆盖CSS属性；
+//              carousel.style['transform'] = 'translateZ(-288px) rotateY('+count+'deg)';
+//          }
+//          next.onclick = function () {
+//              count-=360/length;
+//              carousel.style['transform'] = 'translateZ(-288px) rotateY('+count+'deg)';
+//          }
+          function move(e) {
+              let cur = parseFloat(e.target.getAttribute("data"));
+              count += 360/length*cur;
+              carousel.style['transform'] = 'translateZ(-288px) rotateY('+count+'deg)';
+              console.log(count);
+          }
+          for(let i=0;i<btns.length;i++){
+              btns[i].addEventListener('click',move,false)
+          }
+      }
+
+      // 当页面的DOM加载完成时，执行init这个函数；
+      window.addEventListener('DOMContentLoaded',init,false)
+
+  </script>
+</body>
+</html>
